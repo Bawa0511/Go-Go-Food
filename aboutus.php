@@ -26,7 +26,10 @@
 
   <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
   <link href="js/plugins/perfect-scrollbar/perfect-scrollbar.css" type="text/css" rel="stylesheet" media="screen,projection">
-  
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -82,9 +85,35 @@
 
         <!--start container-->
         <div class="container">
-          <p> Add image or write about us data</p>
+          <h1><p class="text-danger">Meet Our Team</p></h1>
 		  
-		  
+		  <div class="container">
+            
+            
+  <img src="images/Own.jpeg" class="img-circle" alt="Cinque Terre" width="304" height="304"> 
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+  <img src="images/Chef Dharma.jpeg" class="img-circle" alt="Cinque Terre" width="304" height="304"> 
+     &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+  <img src="images/Chef Gaurav.jpeg" class="img-circle" alt="Cinque Terre" width="304" height="304"> 
+</div>
+<br/>
+   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Mr. Ravi</button>  
+  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
+  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+   <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo1">Chef Dharma</button>
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
+  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo2">Chef Gaurav</button>
+  <div id="demo" class="collapse">
+    <h3>Owner of GO GO FOODS</h3>
+  </div>
+  <div id="demo1" class="collapse">
+   <h4> Chef Dharma who has worked in so many hotels and restaurant like Basant Hotel, Baba Rasoi in Jalandhar Model town and having experience of 20 years in this field.</h4>
+  </div>
+  <div id="demo2" class="collapse">
+    <h4>Chef Gaurav who is having experience of 15 years in chef field working in residency hotel.</h4>
+		 </div> 
         </div>
         <!--end container-->
 

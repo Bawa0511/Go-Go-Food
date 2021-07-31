@@ -251,6 +251,8 @@ include 'includes/connect.php';
 							$balance = $row2['balance'];
 						}
 					}
+					if($row['id']==1)
+						$balance=0;
 					echo '<td><label for="balance">Balance</label><input id="balance" name="'.$row['id'].'_balance" value="'.$balance.'" type="number" data-error=".errorTxt01"><div class="errorTxt01"></div></td></tr>'; 					
 				}
 				?>

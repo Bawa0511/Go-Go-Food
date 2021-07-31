@@ -52,32 +52,6 @@ include 'includes/wallet.php';
   .input-field label.active{
       width:100%;
   }
-  .left-alert input[type=text] + label:after, 
-  .left-alert input[type=password] + label:after, 
-  .left-alert input[type=email] + label:after, 
-  .left-alert input[type=url] + label:after, 
-  .left-alert input[type=time] + label:after,
-  .left-alert input[type=date] + label:after, 
-  .left-alert input[type=datetime-local] + label:after, 
-  .left-alert input[type=tel] + label:after, 
-  .left-alert input[type=number] + label:after, 
-  .left-alert input[type=search] + label:after, 
-  .left-alert textarea.materialize-textarea + label:after{
-      left:0px;
-  }
-  .right-alert input[type=text] + label:after, 
-  .right-alert input[type=password] + label:after, 
-  .right-alert input[type=email] + label:after, 
-  .right-alert input[type=url] + label:after, 
-  .right-alert input[type=time] + label:after,
-  .right-alert input[type=date] + label:after, 
-  .right-alert input[type=datetime-local] + label:after, 
-  .right-alert input[type=tel] + label:after, 
-  .right-alert input[type=number] + label:after, 
-  .right-alert input[type=search] + label:after, 
-  .right-alert textarea.materialize-textarea + label:after{
-      right:70px;
-  }
   
   
   
@@ -299,7 +273,7 @@ include 'includes/wallet.php';
 			  <?php
 			  
 						$result = mysqli_query($con, "SELECT * FROM items where id<4 AND deleted=0;");
-						echo '<h5>Special Items</h5>';
+						
 						echo '<div class="landscape" style="display:flex;justify-content:center;align-items:center;">';
 						echo ' <!-- Modal Trigger -->
 									<a class="waves-effect waves-light btn modal-trigger" href="#modalspecial">
@@ -360,9 +334,25 @@ include 'includes/wallet.php';
 				$result = mysqli_query($con, "SELECT * FROM items where not deleted;");
 				while($row = mysqli_fetch_array($result))
 				{
-					echo '<tr class="col s4"><td><b>'.$row["category"].'</b><br><img id="'.$row['id'].'_image" height=150 width=150 class="responsive-img" src="images/food/'.$row["imagename"].'"></img><br><span id="'.$row['id'].'_name"><b>'.$row["name"].'</b></span></td><td>&#x20b9;<span id="'.$row['id'].'_price">'.$row["price"].'</span></td>';                      
-					echo '<td><div id="'.$row["id"].'_add" name="'.$row['id'].'_add" style="cursor: pointer" onClick="updateQuantity(this.id)"><i class="material-icons">add_box</i></div>';
-					echo '<input id="'.$row["id"].'" name="'.$row['id'].'" type="hidden" value="0" data-error=".errorTxt'.$row["id"].'"><div class="errorTxt'.$row["id"].'"></td></tr>';
+					echo '<tr class="col s4">
+							<td>
+								<b>'.$row["category"].'</b><br>
+								<div style="width:150px; height:150px;">
+									<img id="'.$row['id'].'_image"  class="responsive-img" src="images/food/'.$row["imagename"].'"></img>
+								</div>
+								<br>
+								<span id="'.$row['id'].'_name"><b>'.$row["name"].'</b></span>
+							</td>
+							<td>
+								&#x20b9;<span id="'.$row['id'].'_price">'.$row["price"].'</span>
+							</td>';                      
+					echo '<td>
+							<div id="'.$row["id"].'_add" name="'.$row['id'].'_add" style="cursor: pointer" onClick="updateQuantity(this.id)"><i class="material-icons">add_box</i>
+							</div>';
+						echo '<input id="'.$row["id"].'" name="'.$row['id'].'" type="hidden" value="0" data-error=".errorTxt'.$row["id"].'">
+							<div class="errorTxt'.$row["id"].'">
+							</td>
+						</tr>';
 				}
 				?>
                     </tbody>
@@ -485,13 +475,15 @@ function updateQuantity(id_str){
   function createCollectionList(){
 	  var inner_value="";
 	  var total_cart_value=0;
+	  var total_item_count=0;
 	  for(var i=0;i<item_list.length;i++){
 		  total_cart_value+=item_list[i][5];
+		  total_item_count+=parseInt(item_list[i][4]);
 		  inner_value=inner_value+'<li class="collection-item avatar"><img src="'+item_list[i][1]+'" alt="" class="circle"><span class="title">'+item_list[i][2]+'</span><p>'+item_list[i][5]+'<span class="center">'+item_list[i][4]+'</span></p><a href="#!" class="secondary-content" onClick="removeItem('+item_list[i][0]+')"><i class="material-icons">close</i></a></li>';
 	  }
 	  document.getElementById("item_collection").innerHTML=inner_value;
 	  document.getElementById("total_cart_value").innerHTML=total_cart_value+" &#x20b9;";
-	  document.getElementById("item_count").innerHTML=item_list.length;
+	  document.getElementById("item_count").innerHTML=total_item_count;
   }
   
   function removeItem(id){
